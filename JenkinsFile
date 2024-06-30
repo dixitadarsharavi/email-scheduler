@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('version') {
             steps {
-                echo '${params.Email_sender}'
+                echo ${params.Email_sender}
             }
         }
     }
