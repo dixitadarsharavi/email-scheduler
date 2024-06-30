@@ -14,7 +14,6 @@ pipeline {
         stage('version') {
             steps {
                 sh 'echo ${params.Email_sender}'
-                sh 'go run emailScript.go ${params.Email_sender} ${params.Email_recipients} ${params.Email_message} ${params.Email_server_configurations}'
             }
         }
     }
