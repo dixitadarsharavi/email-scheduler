@@ -7,12 +7,6 @@ import (
 	"strings"
 )
 
-// Parameters:
-// - Email recipients (array)
-// - Email sender (1 value)
-// - Email message
-// - Email server configuration(?) -- may be create a object which has server configuration
-
 func sendMailSimple(email_sender string, sender_auth string, email_reciever []string, email_msg string, host_settings []string) {
 	auth := smtp.PlainAuth(
 		"",
@@ -32,16 +26,11 @@ func sendMailSimple(email_sender string, sender_auth string, email_reciever []st
 	}
 }
 func main() {
+	// General APP password created for authentication
 	var sender_auth string = "vayn tkje qryv bzww"
 	var email_sender string = os.Args[1]
 	var email_reciever []string = strings.Split(os.Args[2], ",")
 	var email_msg string = os.Args[3]
-	// fmt.Println(email_msg)
 	var host_settings []string = strings.Split(os.Args[4], ",")
 	sendMailSimple(email_sender, sender_auth, email_reciever, email_msg, host_settings)
 }
-
-// TO-DO
-// - Subject and msg is not being separated properly
-// - Write unit tests
-// - Ensure jenkin job sends email on Saturdays

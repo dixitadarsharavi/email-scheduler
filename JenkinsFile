@@ -4,15 +4,14 @@ pipeline {
         go '1.22.4'
     }
     parameters {
-        string(name: 'Email_sender', description: 'Example: "adarshravidixit@gmail.com"')
-        string(name: 'Email_recipients')
+        string(name: 'Email_sender', description: 'Example: "from-address"')
+        string(name: 'Email_recipients', description: 'Example: "to-address1,to-address1"')
         string(name: 'Email_message',description: 'Example: "Subject: My special subject\nThis is the body of my email"')
-        string(name: 'Email_server_configurations', description: 'Example: "<hostname>,<port-number>"')
+        string(name: 'Email_server_configurations', defaultValue: '"smtp.gmail.com,:587"', description: 'Example: "<hostname>,<port-number>"')
         }
     stages {
         stage('version') {
             steps {
-                // echo "${params.Email_sender}"
                 sh "go run emailScript.go ${params.Email_sender} ${params.Email_recipients} ${params.Email_message} ${params.Email_server_configurations}"
             }
         }
