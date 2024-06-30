@@ -4,7 +4,12 @@ pipeline {
     tools {
         go '1.22.4'
     }
-    properties([parameters([string(description: 'Example: "adarshravidixit@gmail.com"', name: 'Email_sender'), string('Email_recipients'), string(description: 'Example: "Subject: My special subject\nThis is the body of my email"', name: 'Email_message'), string(description: 'Example: "<hostname>,<port-number>"', name: 'Email_server_configurations')])])
+    parameters{
+        string(description: 'Example: "adarshravidixit@gmail.com"', name: 'Email_sender'), 
+        string('Email_recipients'), 
+        string(description: 'Example: "Subject: My special subject\nThis is the body of my email"', name: 'Email_message'),
+        string(description: 'Example: "<hostname>,<port-number>"', name: 'Email_server_configurations')
+        }
     stages {
         stage('version') {
             steps {
