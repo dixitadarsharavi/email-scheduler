@@ -13,16 +13,16 @@ pipeline {
                         description: 'Example: "adarshravidixit@gmail.com"',
                         name: 'Email_sender'
                     ),
-                    text
+                    string
                     (
                         'Email_recipients'
                     ),
                     string
                     (
                         description: 'Example: "Subject: My special subject\\nThis is the body of my email"',
-                        name: 'Email message'
+                        name: 'Email_message'
                     ),
-                    text
+                    string
                     (
                         description: 'Example: "<hostname>,<port-number>"',
                         name: 'Email_server_configurations'
@@ -34,7 +34,8 @@ pipeline {
     stages {
         stage('version') {
             steps {
-                sh 'go run helloworld.go'
+                sh 'go build emailScript.go'
+                sh './emailScript ${params.Email_sender} ${params.Email_recipients} ${params.Email_recipients}'
             }
         }
     }
