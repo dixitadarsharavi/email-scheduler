@@ -6,7 +6,7 @@ pipeline {
     parameters {
         string(name: 'Email_sender', description: 'Example: "from-address"')
         string(name: 'Email_recipients', description: 'Example: "to-address1,to-address1"')
-        string(name: 'Email_message',description: 'Example: "Subject: My special subject\nThis is the body of my email"')
+        string(name: 'Email_message',description: 'Example: "Service XYZ has planned maintenance on Saturday from 14:00 till 17:00 CET"')
         string(name: 'Email_server_configurations', defaultValue: '"smtp.gmail.com,:587"', description: 'Example: "<hostname>,<port-number>"')
         }
     stages {

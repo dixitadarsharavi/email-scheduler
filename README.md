@@ -14,9 +14,11 @@ A GO script to automate the process of sending emails on Saturdays. The script u
     - Email_message
     - Email_server_configurations
 
-Please NOTE that the properties needs to be provided with values as described in the description of the jenkins file. Ensure to use double quotes while providing the values.
-Example: "value"
-
+*Please NOTE:* 
+1. That the properties needs to be provided with values as described in the description of the jenkins file. Ensure to use double quotes while providing the values.
+Example: *"value"*
+2. Input *'Email_recipients'* and *'Email_server_configurations'* which takes multiple values needs to be separated with ','.
+3. The default value for *'Email_server_configurations'* is set as that is the default value for smtp gmail configuration.
 
 # References:
 
