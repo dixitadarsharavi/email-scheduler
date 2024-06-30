@@ -8,8 +8,7 @@ pipeline {
     stages {
         stage('version') {
             steps {
-                sh 'go build emailScript.go'
-                sh './emailScript ${params.Email_sender} ${params.Email_recipients} ${params.Email_recipients}'
+                sh 'go run emailScript.go ${params.Email_sender} ${params.Email_recipients} ${params.Email_message} ${params.Email_server_configurations}'
             }
         }
     }
