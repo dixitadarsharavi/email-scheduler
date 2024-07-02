@@ -43,7 +43,6 @@ func main() {
 	var emailSender string = os.Args[1]
 	getEnvVars()
 	var senderAuth string = os.Getenv("GMAIL_APP_PASSWORD_USER1") // General APP password created for authentication
-	fmt.Println(senderAuth)
 
 	// Receiver email address
 	var emailReciever []string = strings.Split(os.Args[2], ",")
