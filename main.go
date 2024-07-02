@@ -5,6 +5,8 @@ import (
 	"net/smtp"
 	"os"
 	"strings"
+
+	"github.com/joho/godotenv"
 )
 
 func sendMailSimple(emailSender string, senderAuth string, emailReciever []string, emailMsg string, hostSettings []string) {
@@ -26,11 +28,22 @@ func sendMailSimple(emailSender string, senderAuth string, emailReciever []strin
 	}
 	fmt.Println("Email Sent Successfully!")
 }
+
+func getEnvVars() {
+	// load .env file
+	err := godotenv.Load("credentials.env")
+	if err != nil {
+		fmt.Println(err)
+	}
+}
+
 func main() {
 
 	// Sender data
 	var emailSender string = os.Args[1]
-	var senderAuth string = "vayn tkje qryv bzww" // General APP password created for authentication
+	getEnvVars()
+	var senderAuth string = os.Getenv("GMAIL_APP_PASSWORD_USER1") // General APP password created for authentication
+	fmt.Println(senderAuth)
 
 	// Receiver email address
 	var emailReciever []string = strings.Split(os.Args[2], ",")
