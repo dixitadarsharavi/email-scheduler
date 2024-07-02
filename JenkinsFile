@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('version') {
             steps {
-                sh "go run emailScript.go ${params.Email_sender} ${params.Email_recipients} ${params.Email_message} ${params.Email_server_configurations}"
+                sh "go run main.go ${params.Email_sender} ${params.Email_recipients} ${params.Email_message} ${params.Email_server_configurations}"
             }
         }
     }
