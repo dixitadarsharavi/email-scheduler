@@ -27,9 +27,11 @@ func TestMain(t *testing.T) {
 	}
 
 	// testing if host-settings is provided
-	hostSettingsResult := [2]string{"hostname", "port"}
-	if hostSettingsResult[0] == "" || hostSettingsResult[1] == "" {
-		t.Error("Please enter hostSettings")
+	hostSettingsResult := []string{"hostName", "port"}
+	for index, val := range hostSettingsResult {
+		if val == "" {
+			t.Error("Please enter valid hostSettings: index", index, "is empty")
+		}
 	}
 
 }
