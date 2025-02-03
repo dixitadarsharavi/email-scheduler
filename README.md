@@ -1,5 +1,4 @@
-# SRE Technical challenge - HyperAutomation
-
+## README:
 A GO script to automate the process of sending emails on Saturdays. The script uses net/smtp libray in-order to send emails with required configuration. This script along with Jenkin configuration is designed to send automated emails every Saturday around 8 AM.
 
 # Pre-requistes:
